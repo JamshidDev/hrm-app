@@ -4,17 +4,18 @@
 :root {
 
   /* Base colors */
-  --color-primary: #bceb39;
-  --color-success: #07c160;
-  --color-danger: #ee0a24;
-  --color-warning: #ff976a;
+  --color-primary: #1a5cff;
+  --color-success: #25D366;
+  --color-danger: #FF3E4E;
+  --color-warning: #FFBA00;
 
-  --color-surface-ground:#070708;
-  --color-surface-section:#dce3f414;
+  --color-surface-ground:#EFEEF3;
+  --color-surface-section:#fff;
+  --surface-line: rgba(196, 12, 12, 0.87);
 
-  --color-base:#fff;
-  --color-medium:#e5e8f18f;
-  --surface-line:#dce3f452;
+  --color-base:#212529;
+  --color-medium:#747474;
+  --color-secondary:#7588a3;
 
 
 
@@ -28,18 +29,18 @@
 }
 
 @theme{
-  --color-primary: #bceb39;
-  --color-success: #07c160;
-  --color-danger: #ee0a24;
-  --color-warning: #ff976a;
+  --color-primary: #1a5cff;
+  --color-success: #25D366;
+  --color-danger: #FF3E4E;
+  --color-warning: #FFBA00;
 
-  --color-surface-ground:#070708;
-  --color-surface-section:#dce3f414;
-  --color-surface-line:#dce3f414;
+  --color-surface-ground:#EFEEF3;
+  --color-surface-section:#fff;
+  --color-surface-line: rgb(234, 234, 234);
 
 
-  --color-base:#fff;
-  --color-medium:#e5e8f18f;
+  --color-base:#212529;
+  --color-medium:#747474;
   --color-secondary:#7588a3;
 }
 

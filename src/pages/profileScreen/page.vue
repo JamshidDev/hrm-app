@@ -1,74 +1,92 @@
 <script setup>
 import {Earth20Filled, ChevronRight12Regular, ChatHelp24Filled, Alert28Filled, Person28Filled} from "@vicons/fluent"
 import { Icon } from '@vicons/utils'
+import LogOutSection from "./ui/LogOutSection.vue"
 
 
 const options = [
   {
     key:'langeage',
-    name:'Languge',
-    bg:'from-success to-primary/90',
+    name:"Shaxsiy ma'lumotlar",
+    bg:'from-primary to-primary/90 shadow-primary',
+    icon:Earth20Filled,
+  },
+  {
+    key:'langeage',
+    name:"Ish haqi",
+    bg:'from-primary to-primary/90 shadow-primary',
+    icon:Earth20Filled,
+  },
+  {
+    key:'langeage',
+    name:"Turniket ma'lumotlari",
+    bg:'from-primary to-primary/90 shadow-primary',
     icon:Earth20Filled,
   },
   {
     key:'support',
-    name:'Support',
-    bg:'from-warning to-warning/90',
+    name:'Mehnat faoliyati',
+    bg:'from-[#FF3E4E] to-[#FF3E4E] shadow-danger',
     icon:ChatHelp24Filled,
   },
   {
     key:'channel',
-    name:'Our Channel',
-    bg:'from-danger to-danger/40',
+    name:'Qarindoshlari',
+    bg:'from-[#FF3E4E] to-[#FF3E4E] shadow-danger',
     icon:Alert28Filled,
   },
   {
     key:'friends',
-    name:'Friends',
-    bg:'from-success to-primary/90',
+    name:"Ma'lumoti",
+    bg:'from-[#25d366] to-[#25d366] shadow-success',
     icon:Person28Filled,
   },
   {
     key:'about_us',
-    name:'About Us',
-    bg:'from-[#01FFFF] to-[#01FFFF]/20',
+    name:"Tibbiy ma'lumotlari",
+    bg:'from-[#ffba00] to-[#ffba00] shadow-warning',
     icon:Person28Filled,
-  }
+  },
+  {
+    key:'about_us',
+    name:"Ta'til ma'lumotlari",
+    bg:'from-[#ffba00] to-[#ffba00] shadow-warning',
+    icon:Person28Filled,
+  },
+  {
+    key:'about_us',
+    name:"Rag'batlantirish",
+    bg:'from-[#ffba00] to-[#ffba00] shadow-warning',
+    icon:Person28Filled,
+  },
+  {
+    key:'about_us',
+    name:"Intizomiy ja'zolar",
+    bg:'from-[#ffba00] to-[#ffba00] shadow-warning',
+    icon:Person28Filled,
+  },
+
 ]
 </script>
 
 <template>
-  <div class="w-full pt-[20px] px-[10px]">
-    <div class="gradient-animation-border after:bg-[#17181A] relative w-full flex items-center bg-surface-section border border-surface-line rounded-2xl px-4 py-2 mb-[40px]">
-      <div class="gradient-border w-[83px] h-[83px] overflow-hidden">
-        <div class="gradient-animation-border-glow"></div>
-        <van-image
-          radius="100"
-          width="80"
-          height="80"
-          src="/avatar.jpg"
-          fit="cover"
-        />
+  <div class="w-full pt-[20px] px-[10px] overflow-y-auto overflow-x-hidden pb-[100px]">
+    <div class="bg-surface-section flex gap-4 items-center rounded-xl px-4 py-2 border border-surface-line mb-6">
+      <img class="w-[32px] rounded-full" src="https://s3.dasuty.com/hrm/worker-photos/d96ea0e7e12cdd28b6cbed9bd8cbedb5.jpeg" alt="user avatar">
+      <div class="w-[calc(100%-32px)]">
+        <h3 class="text-base line-clamp-1 leading-[1.2]">Raximov Jamshid Shuxrat o'g'li</h3>
+        <h3 class=" line-clamp-1 text-xs text-secondary leading-[1.2]">"O‘zbekiston temir yo‘llari" AJ</h3>
       </div>
-      <div class="flex flex-col w-[calc(100%-83px)] pl-4">
-        <div class="font-bold text-medium line-clamp-1">Jahongir XD</div>
-        <div class="flex justify-between items-center mt-2">
-            <span class="bg-primary/10 px-2 py-[1px] border border-primary/60 leading-[1.2] text-primary rounded-2xl text-xs">Pro user</span>
-          <span class="text-xs text-medium">13.12.2025</span>
-        </div>
-      </div>
-
     </div>
 
-
-    <div class="bg-surface-section rounded-xl border border-surface-line pt-2">
-      <div v-for="item in options" v-ripple class="flex items-center pl-4 py-2 border-b border-surface-line">
-        <div :class="[item.bg]" class="w-[36px] h-[36px] bg-gradient-to-r rounded-2xl flex justify-center items-center">
-          <Icon size="30"  class="text-white">
+    <div class="bg-surface-section rounded-xl border border-surface-line">
+      <div v-for="item in options" :key="item" v-ripple class="flex items-center pl-4 py-2 border-b border-surface-line">
+        <div :class="[item.bg]" class="w-[36px] h-[36px] bg-gradient-to-r rounded-2xl flex justify-center items-center z-10">
+          <Icon size="20"  class="text-white">
             <component :is="item.icon" />
           </Icon>
         </div>
-        <div class="w-[calc(100%-60px)] pl-4 text-base font-medium">
+        <div class="w-[calc(100%-60px)] pl-4 text-base font-medium select-none">
           {{item.name }}
         </div>
         <Icon size="18"  class="text-medium flex-shrink-0">
@@ -77,11 +95,7 @@ const options = [
       </div>
     </div>
 
-    <div v-ripple class="bg-surface-section border border-danger rounded-xl px-2 py-3 text-danger text-center mt-[60px]">
-      Log out
-    </div>
-
-    <div class="w-full text-center text-medium text-xs mt-[40px]">Version 1.0.0</div>
+    <LogOutSection/>
 
   </div>
 </template>
@@ -188,6 +202,34 @@ const options = [
     transform: translate(-50%, -50%) rotate(360deg);
   }
 }
+
+.shadow-danger {
+  --vs-color: 255, 62, 78;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+  box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+}
+
+.shadow-primary {
+  --vs-color: 26, 92, 255;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+  box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+}
+
+.shadow-success {
+  --vs-color: 37, 211, 102;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+  box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+}
+
+.shadow-warning {
+  --vs-color: 255, 186, 0;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+  box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+}
+
+
+
+
 
 
 

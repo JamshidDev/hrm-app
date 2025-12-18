@@ -4,16 +4,15 @@ import './assets/main.css'
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'
 import Vant from 'vant'
+import apiService from "@/service/apiService.js"
+
 import {ripple} from "@/directives/index.js"
-
-
-
 
 import App from './App.vue'
 import router from './router'
+window.$ApiService = apiService
 
 const app = createApp(App)
-
 
 app.directive('ripple', ripple)
 app.use(createPinia())
