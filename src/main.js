@@ -1,0 +1,23 @@
+import 'vant/lib/index.css'
+import './assets/main.css'
+
+import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import Vant from 'vant'
+import {ripple} from "@/directives/index.js"
+
+
+
+
+import App from './App.vue'
+import router from './router'
+
+const app = createApp(App)
+
+
+app.directive('ripple', ripple)
+app.use(createPinia())
+app.use(router)
+app.use(Vant)
+
+app.mount('#app')

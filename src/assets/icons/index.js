@@ -1,0 +1,11 @@
+
+export {default as TelegramIcon} from './TelegramIcon.vue'
+export {default as ArrowRightIcon} from './ArrowRight.vue'
+export {default as YoutubeIcon} from './YoutubeIcon.vue'
+export {default as TiktokIcon} from './TiktokIcon.vue'
+export {default as WhatsappIcon} from './WhatsappIcon.vue'
+export {default as FacebookIcon} from './FacebookIcon.vue'
+export {default as HistoryIcon} from './HistoryIcon.vue'
+export {default as ReferralIcon} from './ReferralIcon.vue'
+export {default as CopyIcon} from './CopyIcon.vue'
+export {default as WalletIcon} from './WalletIcon.vue'
