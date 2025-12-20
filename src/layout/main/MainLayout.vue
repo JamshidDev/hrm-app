@@ -1,77 +1,60 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { PersonCircle24Regular, AppRecent20Filled, Wallet24Filled } from "@vicons/fluent"
+import { PersonCircle24Regular,Home48Regular, Settings48Regular, DocumentBulletList20Regular } from "@vicons/fluent"
 import { Icon } from '@vicons/utils'
+import RouterTransition from '@/components/transion/RouterTransition.vue'
+import { appPaths } from '@/utils/index.js'
 
 const route = useRoute()
 const direction = ref('right')
-const previousIndex = ref(0)
 
 const tabs = [
-  { icon: AppRecent20Filled, label: 'Service', path: '/service' },
-  { icon: Wallet24Filled, label: 'Wallet', path: '/wallet' },
-  { icon: PersonCircle24Regular, label: 'Profile', path: '/profile' }
+  { icon: DocumentBulletList20Regular, label: 'Arizalar', path:appPaths.application},
+  { icon: DocumentBulletList20Regular, label: 'Hujjatlar', path: appPaths.document},
+  { icon: Home48Regular, label: 'Asosiy', path: appPaths.main  },
+  { icon: PersonCircle24Regular, label: 'Profil', path: appPaths.profile },
+  { icon: Settings48Regular, label: 'Sozlamalar', path: appPaths.setting },
 ]
 
 const currentIndex = computed(() => {
   return tabs.findIndex(tab => route.path.startsWith(tab.path)) ?? 0
 })
 
-const transitionName = computed(() => {
-  return direction.value === 'right' ? 'slide-left' : 'slide-right'
-})
 
 watch(currentIndex, (newVal, oldVal) => {
   direction.value = newVal > oldVal ? 'right' : 'left'
-  previousIndex.value = oldVal
 })
 </script>
 
 <template>
-  <div class="w-full h-screen overflow-hidden bg-surface-ground relative">
+  <div class="w-full h-screen overflow-hidden relative">
+    <RouterTransition mode="tabs" :tabs="tabs" :duration="250"  />
 
-    <!-- Router View with Transition -->
-    <router-view v-slot="{ Component }">
-      <Transition :name="transitionName" mode="out-in">
-        <component :is="Component" :key="route.path" class="screen-content" />
-      </Transition>
-    </router-view>
-
-    <!-- Navigation -->
-    <div class="z-[100] flex justify-between items-center px-[20px] bg-surface-section border border-surface-line absolute left-1/2 -translate-x-1/2 bottom-[30px] h-[60px] w-[calc(100%-40px)] rounded-4xl">
+    <div class="z-[100] shadow-sm flex justify-between items-center px-[6px] bg-surface-section/30 backdrop-blur-[20px] border border-surface-line fixed left-1/2 -translate-x-1/2 bottom-[20px] h-[60px] w-[calc(100%-20px)] rounded-xl">
       <router-link
         v-for="(tab, index) in tabs"
         :key="index"
         :to="tab.path"
-        class="flex flex-col px-2 py-1 rounded-lg transition-all duration-300"
-        :class="currentIndex === index ? 'text-primary scale-110' : 'text-medium'"
+        class="flex flex-col px-2 py-1 rounded-lg transition-all duration-300 relative h-[46px]"
+        :class="currentIndex === index ? 'text-primary scale-100' : 'text-base'"
       >
-        <Icon size="24" class="mx-auto">
-          <component :is="tab.icon" />
-        </Icon>
-        <span class="text-[8px] mx-auto">{{ tab.label }}</span>
+        <div :class="[index === 2 ? 'bg-primary shadow-primary text-white flex justify-center items-center p-3 rounded-2xl absolute bottom-[30px] left-1/2 -translate-x-1/2' : 'h-[26px] flex justify-center'] ">
+          <Icon size="24" class="mx-auto">
+            <component :is="tab.icon" />
+          </Icon>
+        </div>
+        <span class="text-[8px] mx-auto mt-auto leading-[1.2] content-end">{{ tab.label }}</span>
       </router-link>
     </div>
   </div>
 </template>
 
 <style scoped>
-.screen-content {
-  width: 100%;
-  height: 100%;
-  will-change: transform, opacity;
+.shadow-primary {
+  --vs-color: 26, 92, 255;
+  -webkit-box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
+  box-shadow: 0 8px 10px -6px rgba(var(--vs-color), 1);
 }
-
-.slide-left-enter-active,
-.slide-left-leave-active,
-.slide-right-enter-active,
-.slide-right-leave-active {
-  transition: transform 0.2s ease;
-}
-
-.slide-left-enter-from { transform: translateX(100%); }
-.slide-left-leave-to { transform: translateX(-100%); }
-.slide-right-enter-from { transform: translateX(-100%); }
-.slide-right-leave-to { transform: translateX(100%); }
 </style>
+

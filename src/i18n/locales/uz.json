@@ -1,0 +1,16 @@
+{
+  "common": {
+    "yes": "Ha",
+    "no": "Yo'q",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish",
+    "comingSoon": "Sahifa tez orada ishlab chiqilishi reja qilingan!"
+  },
+  "profile": {
+    "logout": {
+      "name": "Tizimdan chiqish",
+      "title": "Tizimdan chiqish",
+      "warningText": "Siz haqiqattan ham hisobizdan chiqmoqchimisiz?"
+    }
+  }
+}

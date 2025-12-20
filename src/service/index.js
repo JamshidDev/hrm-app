@@ -2,6 +2,8 @@ import axios from 'axios'
 const apiUrl = import.meta.env.VITE_API_URL;
 import {appSetting} from '@/utils/index.js'
 import { showNotify} from 'vant';
+import { useNotify } from '@/composables/index.js'
+const notify = useNotify()
 
 const instance = axios.create({
   baseURL: `${apiUrl}/api`
@@ -27,7 +29,7 @@ instance.interceptors.response.use(
   },
   error => {
     if(error?.response?.data?.message){
-      showNotify({ type: 'danger', message: error.response.data.message });
+      notify.error(error.response.data.message)
     }
     return Promise.reject(error)
   }

@@ -1,0 +1,14 @@
+{
+  "common": {
+    "yes": "Ha",
+    "no": "Yo'q",
+    "save": "Saqlash",
+    "cancel": "Bekor qilish"
+  },
+  "profile": {
+    "logout": {
+      "title": "Tizimdan chiqish",
+      "warningText": "Siz haqiqattan ham hisobizdan chiqmoqchimisiz?"
+    }
+  }
+}
