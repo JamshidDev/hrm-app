@@ -1,42 +1,55 @@
-// utils/storage.js
+
 import { Preferences } from '@capacitor/preferences'
 import { Capacitor } from '@capacitor/core'
 
+const isNative = Capacitor.isNativePlatform()
+
 export const secureStorage = {
   async set(key, value) {
-    try {
-      if (Capacitor.isNativePlatform()) {
-        await Preferences.set({ key, value })
-      } else {
-        localStorage.setItem(key, value)
-      }
-    } catch (e) {
-      console.error('Storage set error:', e)
+    const data = typeof value === 'string' ? value : JSON.stringify(value)
+
+    if (isNative) {
+      await Preferences.set({ key, value: data })
+    } else {
+      localStorage.setItem(key, data)
     }
   },
 
-  async get(key) {
-    try {
-      if (Capacitor.isNativePlatform()) {
-        const { value } = await Preferences.get({ key })
+  async get(key, parse = true) {
+    let value
+
+    if (isNative) {
+      const result = await Preferences.get({ key })
+      value = result.value
+    } else {
+      value = localStorage.getItem(key)
+    }
+
+    if (!value) return null
+
+    if (parse) {
+      try {
+        return JSON.parse(value)
+      } catch {
         return value
       }
-      return localStorage.getItem(key)
-    } catch (e) {
-      console.error('Storage get error:', e)
-      return null
     }
+    return value
   },
 
   async remove(key) {
-    try {
-      if (Capacitor.isNativePlatform()) {
-        await Preferences.remove({ key })
-      } else {
-        localStorage.removeItem(key)
-      }
-    } catch (e) {
-      console.error('Storage remove error:', e)
+    if (isNative) {
+      await Preferences.remove({ key })
+    } else {
+      localStorage.removeItem(key)
+    }
+  },
+
+  async clear() {
+    if (isNative) {
+      await Preferences.clear()
+    } else {
+      localStorage.clear()
     }
   }
 }

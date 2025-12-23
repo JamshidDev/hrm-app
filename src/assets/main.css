@@ -103,7 +103,7 @@
 }
 
 
-*{
+*:not(i){
   scrollbar-width: none;
   -ms-overflow-style: none;
   font-family:-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif !important;

@@ -11,5 +11,10 @@ export const appPaths = {
   dashboard: '/dashboard',
   service: '/service',
   career: '/career',
+  personal: '/personal',
+  med: '/med',
+  vacation: '/vacation',
+  incentive: '/incentive',
+  punishment: '/punishment',
   relative: '/relative',
 }

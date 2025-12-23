@@ -18,6 +18,10 @@ const personalList = async (payload)=>{
   return await axios.get(`/v1/user/mobile/personal-list`)
 }
 
+const personalInfo = async (payload)=>{
+  return await axios.get(`/v1/user/mobile/work-info`)
+}
+
 
 
 export default {
@@ -25,4 +29,5 @@ export default {
   logOut,
   profile,
   personalList,
+  personalInfo,
 }

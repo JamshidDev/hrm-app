@@ -4,6 +4,11 @@
     "no": "Yo'q",
     "save": "Saqlash",
     "cancel": "Bekor qilish",
+    "from": "Qachondan",
+    "to": "Qachongacha",
+    "year": "Yil",
+    "month": "Oy",
+    "day": "Kun",
     "comingSoon": "Sahifa tez orada ishlab chiqilishi reja qilingan!"
   },
   "profile": {
@@ -12,5 +17,60 @@
       "title": "Tizimdan chiqish",
       "warningText": "Siz haqiqattan ham hisobizdan chiqmoqchimisiz?"
     }
+  },
+  "career": {
+    "name": "Mehnat faoliyati",
+    "oldCareerTitle": "Mehnat faoliyati tarixi"
+  },
+  "personal": {
+    "name": "Shaxsiy ma'lumotlar",
+    "mainInfo": "Asosiy ma'lumotlar",
+    "last_name": "Familiya",
+    "first_name": "Ism",
+    "middle_name": "Sharif",
+    "birthday": "Tug'ilgan sana",
+    "pin": "JSHSHIR",
+    "nationality": "Millati",
+    "marital_status": "Oilaviy holati",
+    "phone": "Telefon raqam",
+    "language": "Tillar",
+    "birthPlace": "Tug'ilgan joyi",
+    "birthday_country": "Davlat",
+    "birthday_region": "Viloyat",
+    "birthday_city": "Tuman",
+    "currentPlace": "Yashash joyi",
+    "current_address": "Manzil"
+  },
+  "med": {
+    "name": "Tibbiy ma'lumotlari",
+    "status": "Holati",
+    "from": "Qachondan",
+    "to": "Qachongacha"
+  },
+  "vacation": {
+    "name": "Ta'til ma'lumotlari",
+    "type": "Ta'til turi",
+    "work_day": "Ish kuni",
+    "rest_day": "Qolgan kun",
+    "all_day": "Ta'til kuni"
+  },
+  "incentive": {
+    "name": "Rag'batlantirishlar",
+    "number": "Buyruq raqami",
+    "date": "Berilgan sana",
+    "gift": "Sovg'a turi",
+    "by_whom": "Kim tomonidan",
+    "reason": "Sabab",
+    "organization": "Korxona"
+  },
+  "punishment": {
+    "name": "Intizomiy jazolar",
+    "fine": "Jazo turi",
+    "number": "Buyruq raqami",
+    "date": "Berilgan sana",
+    "gift": "Sovg'a turi",
+    "by_whom": "Kim tomonidan",
+    "reason": "Sabab",
+    "organization": "Korxona"
   }
 }
